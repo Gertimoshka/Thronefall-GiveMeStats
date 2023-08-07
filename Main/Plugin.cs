@@ -1,7 +1,7 @@
 ﻿using BepInEx;
-using BetterDescriptions.Patches;
+using GiveMeStats.Patches;
 
-namespace BetterDescriptions
+namespace GiveMeStats
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     public class Plugin : BaseUnityPlugin
