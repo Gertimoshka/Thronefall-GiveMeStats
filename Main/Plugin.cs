@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-using GiveMeStats.Patches;
 
 namespace GiveMeStats
 {
@@ -11,7 +10,7 @@ namespace GiveMeStats
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
-            PerkSelectionTooltipHelperPatch.Apply();
+            Patches.PerkSelectionTooltipHelperPatch.Apply();
         }
     }
 }

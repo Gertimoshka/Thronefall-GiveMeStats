@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using HarmonyLib;
 
 namespace GiveMeStats.Patches
 {
@@ -10,12 +11,11 @@ namespace GiveMeStats.Patches
         public static void Apply()
         {
             On.PerkSelectionTooltipHelper.UpdateTooltip += UpdateTooltip;
-
         }
 
         private static void UpdateTooltip(On.PerkSelectionTooltipHelper.orig_UpdateTooltip orig, PerkSelectionTooltipHelper self)
         {
-            TFUIEquippable x = self.targetFrame.CurrentFocus as TFUIEquippable;
+            TFUIEquippable x = Traverse.Create(self).Field<TFUIEquippable>("currentElement").Value;
             if (x == null)
             {
                 return;
